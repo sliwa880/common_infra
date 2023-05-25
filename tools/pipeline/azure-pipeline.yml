@@ -1,0 +1,31 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - group: common
+
+resources:
+  repositories:
+    - repository: DevOps-Templates
+      type: github
+      endpoint: sliwa880
+      name: sliwa880/common_template
+      ref: main
+
+    - repository: terraform-modules
+      type: github
+      endpoint: sliwa880
+      name: sliwa880/terraform-modules
+  
+stages:
+  - template: template-deploy-infra-to-env.yml@DevOps-Templates
+    parameters:
+      serviceName: core_infra
+      environment: test
+      serviceConnectionAzure: $(serviceConnectionAzure)
+      terraformBackendResourceGroup: $(terraformBackendResourceGroup)
+      terraformBackendStorageAccount: $(terraformBackendStorageAccount)
+      workingDirectory: core_infra/tools/infra
