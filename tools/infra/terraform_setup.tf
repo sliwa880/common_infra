@@ -7,6 +7,10 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~> 3.5"
     }
+    azapi = {
+      source  = "Azure/azapi"
+      version = "1.2.0"
+    }
   }
 }
 
@@ -17,6 +21,8 @@ provider "azurerm" {
     }
   }
 }
+
+provider "azapi" { }
 
 terraform {
   backend "azurerm" {

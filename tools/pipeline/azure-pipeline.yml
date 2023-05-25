@@ -12,7 +12,7 @@ resources:
     - repository: DevOps-Templates
       type: github
       endpoint: sliwa880
-      name: sliwa880/common_template
+      name: sliwa880/pipeline_templates
       ref: main
 
     - repository: terraform-modules
@@ -28,4 +28,3 @@ stages:
       serviceConnectionAzure: $(serviceConnectionAzure)
       terraformBackendResourceGroup: $(terraformBackendResourceGroup)
       terraformBackendStorageAccount: $(terraformBackendStorageAccount)
-      workingDirectory: core_infra/tools/infra
