@@ -17,7 +17,7 @@ resource "azapi_resource" "acr" {
       name = "Standard"
     }
     properties = {
-      adminUserEnabled = false
+      adminUserEnabled = true
     }
   })
 }
